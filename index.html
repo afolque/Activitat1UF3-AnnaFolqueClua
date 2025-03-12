@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pràctica temes a formulari</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .colorDark {
+            background-color: #222;
+            color: white;
+        }
+        .colorLight {
+            background-color: #f0f0f0;
+            color: black;
+        }
+        .colorCustom {
+            background-color: #2e8b57;
+            color: #ffeb3b;
+        }
+        .container {
+            padding: 20px;
+        }
+        select, input, textarea, button {
+            margin: 10px 0;
+            padding: 5px;
+        }
+    </style>  
+</head>
+<body class="colorLight">
+    <div class="container">
+        <label for="themeSelector">Selecciona el tema:</label>
+        <select id="themeSelector">
+            <option value="colorDark">Dark</option>
+            <option value="colorLight" selected>Light</option>
+            <option value="colorCustom">Custom</option>
+        </select>
+        
+        <form action="/my-handling-form-page" method="post">
+            <label for="name">Nom:</label>
+            <input type="text" id="name" name="user_name" minlength="" maxlength="20" />
+            
+            <label for="mail">Correu:</label>
+            <input type="email" id="mail" name="user_mail" />
+            
+            <label for="msg">Missatge:</label>
+            <textarea id="msg" name="user_message"></textarea>
+            
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    
+    <script>
+        const themeSelector = document.getElementById("themeSelector");
+        const body = document.body;
+        
+        themeSelector.addEventListener("change", function() {
+            body.className = this.value;
+        });
+    </script>
+</body>
+</html>
